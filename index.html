@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carlos Almeida · Desenvolvedor React Native</title>
+<meta name="description" content="Carlos Almeida, desenvolvedor React Native em Maringá-PR. Apps em produção na Google Play, sistemas corporativos offline-first e automações em Node.js.">
+<meta property="og:title" content="Carlos Almeida · Desenvolvedor React Native">
+<meta property="og:description" content="Apps em produção na Google Play, sistemas corporativos offline-first e automações em Node.js.">
+<meta property="og:image" content="https://devcarlosalmeida.github.io/img/tela-sobrou.jpg">
+<meta name="theme-color" content="#F3EFE7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root { --papel: #F3EFE7; --papel-2: #EAE4D8; --tinta: #1D1B18; --tinta-2: #57524A; --tinta-3: #8C857A; --linha: #D8D0C1; --cor: #B8431B; --cartao: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --papel: #171614; --papel-2: #211F1C; --tinta: #F1ECE3; --tinta-2: #C2BBAF; --tinta-3: #8E877C; --linha: #34302A; --cor: #E2774F; --cartao: #1D1B19; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 17px/1.6 'IBM Plex Sans', system-ui, sans-serif; }
+  a { color: inherit; }
+  .caixa { max-width: 1040px; margin: 0 auto; padding: 0 max(18px, env(safe-area-inset-left)); }
+  h1, h2 { font-family: Fraunces, Georgia, serif; font-weight: 400; letter-spacing: -.015em; margin: 0; }
+  code, .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .86em; }
+
+  header { border-bottom: 1px solid var(--linha); }
+  header .caixa { display: flex; justify-content: space-between; align-items: center; min-height: 62px; gap: 16px; }
+  .nome { font-weight: 600; text-decoration: none; white-space: nowrap; }
+  header nav { display: flex; gap: 20px; font-size: .95rem; }
+  header nav a { text-decoration: none; color: var(--tinta-2); }
+  header nav a:hover { color: var(--tinta); }
+  @media (max-width: 560px) { header nav a.opc { display: none; } }
+
+  .intro { padding-block: 68px 52px; }
+  .intro .onde { font-size: .95rem; color: var(--tinta-3); margin: 0 0 18px; }
+  .intro h1 { font-size: clamp(2.2rem, 6.2vw, 4rem); line-height: 1.06; max-width: 17ch; }
+  .intro p { max-width: 60ch; color: var(--tinta-2); font-size: 1.1rem; margin: 24px 0 0; }
+  .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 38px 0 0; padding: 0; list-style: none; max-width: 760px; }
+  .numeros li { border-top: 2px solid var(--tinta); padding-top: 10px; color: var(--tinta-2); font-size: .93rem; line-height: 1.4; }
+  .numeros b { display: block; font-family: Fraunces, serif; font-weight: 500; font-size: 1.9rem; color: var(--tinta); line-height: 1.1; }
+  .contatos { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 34px; font-weight: 500; }
+  .contatos a { text-decoration: none; border-bottom: 1.5px solid var(--cor); padding-bottom: 2px; }
+  .contatos a:hover { color: var(--cor); }
+
+  section { padding: 56px 0; border-top: 1px solid var(--linha); }
+  .cabeca { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 20px; margin-bottom: 28px; flex-wrap: wrap; }
+  .cabeca h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+  .cabeca p { margin: 0; color: var(--tinta-3); font-size: .95rem; }
+
+  /* projetos */
+  .projetos { display: grid; gap: 22px; }
+  @media (min-width: 820px) { .projetos { grid-template-columns: 1fr 1fr; } }
+  .proj { display: grid; grid-template-columns: 112px 1fr; gap: 18px; background: var(--cartao); border: 1px solid var(--linha); border-radius: 16px; padding: 18px; }
+  .proj img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid var(--linha); background: var(--papel-2); display: block; }
+  .proj .tipo { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--cor); font-weight: 600; }
+  .proj h3 { margin: 2px 0 6px; font-size: 1.2rem; }
+  .proj p { margin: 0 0 10px; color: var(--tinta-2); font-size: .95rem; line-height: 1.5; }
+  .proj ul { margin: 0 0 12px; padding-left: 18px; color: var(--tinta-2); font-size: .92rem; line-height: 1.5; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tags span { font-family: 'IBM Plex Mono', monospace; font-size: .74rem; border: 1px solid var(--linha); border-radius: 99px; padding: 2px 9px; color: var(--tinta-2); }
+  .proj a.ver { font-weight: 600; font-size: .92rem; text-decoration: none; border-bottom: 1.5px solid var(--cor); }
+  @media (max-width: 420px) { .proj { grid-template-columns: 1fr; } .proj img { max-width: 170px; } }
+
+  /* experiência */
+  .exp { display: grid; gap: 8px 40px; }
+  @media (min-width: 760px) { .exp { grid-template-columns: 220px 1fr; } }
+  .exp .quando { color: var(--tinta-3); font-size: .95rem; }
+  .exp h3 { margin: 0 0 8px; font-size: 1.15rem; }
+  .exp ul { margin: 0; padding-left: 20px; color: var(--tinta-2); max-width: 64ch; }
+  .exp li { margin-bottom: 6px; }
+
+  /* stack */
+  .stack { display: grid; gap: 0 48px; border-top: 1px solid var(--linha); }
+  @media (min-width: 760px) { .stack { grid-template-columns: 1fr 1fr; } }
+  .stack div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--linha); }
+  .stack b { font-weight: 600; font-size: .95rem; }
+  .stack span { color: var(--tinta-2); font-size: .95rem; }
+  @media (max-width: 420px) { .stack div { grid-template-columns: 1fr; gap: 2px; } }
+
+  .fim { padding-block: 64px calc(40px + env(safe-area-inset-bottom)); }
+  .fim h2 { font-size: clamp(1.8rem, 4.4vw, 2.8rem); max-width: 20ch; }
+  .fim p { color: var(--tinta-2); max-width: 56ch; }
+  footer { color: var(--tinta-3); font-size: .85rem; margin-top: 48px; }
+</style>
+</head>
+<body>
+<header><div class="caixa">
+  <a class="nome" href="#">Carlos Almeida</a>
+  <nav><a href="#projetos">Projetos</a><a class="opc" href="#experiencia">Experiência</a><a href="#contato">Contato</a></nav>
+</div></header>
+
+<main>
+<div class="caixa intro">
+  <p class="onde">Desenvolvedor React Native · Maringá, PR · remoto</p>
+  <h1>Apps que saem do papel e ficam no ar.</h1>
+  <p>Trabalho com React Native desde 2020. Faço sistemas corporativos usados todo dia por equipes de campo, e em paralelo crio e mantenho meus próprios apps na Google Play e automações em Node.js que rodam sozinhas. Uso IA como ferramenta para entregar mais rápido, sem abrir mão de revisar o que vai para produção.</p>
+  <ul class="numeros">
+    <li><b>5</b>apps publicados na Google Play</li>
+    <li><b>2019</b>na Verte, com sistemas corporativos</li>
+    <li><b>24/7</b>robôs de postagem rodando em produção</li>
+  </ul>
+  <div class="contatos">
+    <a href="mailto:devcarlosalmeida@gmail.com">devcarlosalmeida@gmail.com</a>
+    <a href="https://github.com/DevCarlosAlmeida">github.com/DevCarlosAlmeida</a>
+    <a href="https://wa.me/5544991295137">WhatsApp (44) 99129-5137</a>
+  </div>
+</div>
+
+<section id="projetos"><div class="caixa">
+  <div class="cabeca"><h2>Projetos em produção</h2><p>Telas reais. O código desses apps é privado; mostro numa conversa técnica.</p></div>
+  <div class="projetos">
+
+    <article class="proj">
+      <img src="img/tela-cravou.jpg" alt="Tela do app Cravou" loading="lazy">
+      <div>
+        <span class="tipo">App mobile</span>
+        <h3>Cravou</h3>
+        <p>App gratuito de palpites de futebol, com ranking entre amigos e pontuação por acerto.</p>
+        <ul><li>Jogos e placares vindos da API-Football, pontuação calculada em Cloud Functions</li><li>Ligas privadas, ranking e notificações push</li></ul>
+        <div class="tags"><span>React Native</span><span>Expo</span><span>Firebase</span><span>AdMob</span></div>
+        <a class="ver" href="https://play.google.com/store/apps/details?id=com.nativeforge.cravou">Ver na Google Play →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/tela-sobrou.jpg" alt="Tela do app Sobrou" loading="lazy">
+      <div>
+        <span class="tipo">App mobile · IA</span>
+        <h3>Sobrou</h3>
+        <p>Controle de gastos em que a pessoa fala e a IA separa e lança cada gasto.</p>
+        <ul><li>Lançamento por voz com IA, com confirmação antes de salvar</li><li>Cálculo de quanto ainda dá para gastar no dia</li><li>Widget nativo na tela inicial do Android</li></ul>
+        <div class="tags"><span>React Native</span><span>Expo</span><span>Firebase</span><span>LLM</span><span>Widget</span></div>
+        <a class="ver" href="https://play.google.com/store/apps/details?id=com.nativeforge.sobrou">Ver na Google Play →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/tela-forgeplay.jpg" alt="Tela do app MindForge" loading="lazy">
+      <div>
+        <span class="tipo">App mobile · jogos</span>
+        <h3>MindForge</h3>
+        <p>Seis jogos de memória, lógica e palavras num app só, com pontos e progresso.</p>
+        <div class="tags"><span>React Native</span><span>Expo</span><span>Animações</span><span>AdMob</span></div>
+        <a class="ver" href="https://play.google.com/store/apps/details?id=com.nativeforge.forgeplay">Ver na Google Play →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/tela-letras5.jpg" alt="Tela do app 5Letras" loading="lazy">
+      <div>
+        <span class="tipo">App mobile · jogos</span>
+        <h3>5Letras</h3>
+        <p>Desafio diário de adivinhar a palavra de cinco letras, em português.</p>
+        <div class="tags"><span>React Native</span><span>TypeScript</span><span>Firebase</span><span>AdMob</span></div>
+        <a class="ver" href="https://play.google.com/store/apps/details?id=com.nativeforge.letras5">Ver na Google Play →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/tela-eventos.jpg" alt="Tela do app Guia Cultural" loading="lazy">
+      <div>
+        <span class="tipo">App mobile · cliente</span>
+        <h3>Guia Cultural</h3>
+        <p>Agenda de eventos da cidade, feita para um cliente e publicada na conta dele.</p>
+        <div class="tags"><span>React Native</span><span>Expo</span><span>Firebase</span></div>
+        <a class="ver" href="https://play.google.com/store/apps/details?id=br.com.guiacultural.eventos">Ver na Google Play →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/achei-tela.jpg" alt="Tela do site Achei pra Casa" loading="lazy">
+      <div>
+        <span class="tipo">Automação · web</span>
+        <h3>Achei pra Casa</h3>
+        <p>Site e robô de ofertas que funciona sem ninguém apertar botão.</p>
+        <ul><li>Busca produtos na API de afiliados, gera arte e vídeo</li><li>Publica sozinho no WhatsApp, Telegram, Instagram e Facebook</li><li>Fila de postagem versionada em Git e agendamento por cron</li></ul>
+        <div class="tags"><span>Node.js</span><span>Cloudflare</span><span>Graph API</span><span>GitHub Actions</span></div>
+        <a class="ver" href="https://acheiachados.com.br">Abrir o site →</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img src="img/garimpei-tela.jpg" alt="Tela do Garimpei" loading="lazy">
+      <div>
+        <span class="tipo">Ferramenta web</span>
+        <h3>Garimpei</h3>
+        <p>Ferramenta para afiliados: cola o link do produto e recebe a arte e o texto prontos para postar.</p>
+        <div class="tags"><span>JavaScript</span><span>Cloudflare Pages</span><span>D1 (SQL)</span></div>
+        <a class="ver" href="https://garimpei.acheiachados.com.br">Abrir a ferramenta →</a>
+      </div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="experiencia"><div class="caixa">
+  <div class="cabeca"><h2>Experiência</h2></div>
+  <div class="exp">
+    <div class="quando">2019 até hoje</div>
+    <div>
+      <h3>Verte (antiga Construserv) · Desenvolvedor mobile e TI</h3>
+      <ul>
+        <li>Apps de inspeção e medição em campo que funcionam sem internet e sincronizam quando o sinal volta (offline-first).</li>
+        <li>Controle de ordens de serviço com mapa, fotos e geolocalização para equipes do setor de energia.</li>
+        <li>Painel de monitoramento de equipamentos em tempo real, com alertas no celular.</li>
+        <li>Integração com Alexa e automações internas em Python para relatórios e documentos.</li>
+      </ul>
+    </div>
+    <div class="quando">2020 até hoje</div>
+    <div>
+      <h3>Produtos próprios · Native Forge</h3>
+      <ul>
+        <li>Do protótipo à publicação: 4 apps próprios na Google Play, monetizados com AdMob.</li>
+        <li>Cuido de tudo: código, build com EAS, publicação, política de privacidade, anúncios e métricas.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="caixa">
+  <div class="cabeca"><h2>Ferramentas do dia a dia</h2></div>
+  <div class="stack">
+    <div><b>Mobile</b><span>React Native, Expo (EAS Build/Update), React Navigation, widgets Android</span></div>
+    <div><b>Linguagens</b><span>JavaScript, TypeScript, Python, SQL</span></div>
+    <div><b>Back-end</b><span>Node.js, Firebase (Auth, Firestore, Functions, FCM, Crashlytics, App Check), Cloudflare Workers, Pages e D1</span></div>
+    <div><b>Integrações</b><span>APIs REST, webhooks, Meta Graph API, Telegram, pagamentos</span></div>
+    <div><b>Web</b><span>React, HTML e CSS responsivo, PWA</span></div>
+    <div><b>Fluxo</b><span>Git, GitHub Actions, Jest, Google Play Console, IA no desenvolvimento</span></div>
+  </div>
+</div></section>
+
+<section id="contato" class="fim"><div class="caixa">
+  <h2>Vamos conversar sobre o seu projeto ou a sua vaga.</h2>
+  <p>Respondo rápido por e-mail ou WhatsApp. Posso mostrar o código dos projetos numa chamada.</p>
+  <div class="contatos">
+    <a href="mailto:devcarlosalmeida@gmail.com">devcarlosalmeida@gmail.com</a>
+    <a href="https://wa.me/5544991295137">WhatsApp (44) 99129-5137</a>
+    <a href="https://github.com/DevCarlosAlmeida">GitHub</a>
+  </div>
+  <footer>Carlos Almeida · Maringá, PR</footer>
+</div></section>
+</main>
+</body>
+</html>
